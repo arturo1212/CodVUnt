@@ -1,0 +1,38 @@
+/*Estructura del código
+  static int[2] posCarro
+  static int[2] centroC
+  static int[3] recta1, recta2, recta3
+  
+  Si la lectura del sharp es mayor a (20) && evasion == false{
+    Hacer PID de siempre
+  }
+  else{
+    if evasion == false{
+      posCarro = [0,0]
+      evasion = true
+      
+    }
+    else{
+      
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+  }
+  
+*/
