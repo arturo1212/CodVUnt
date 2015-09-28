@@ -1,27 +1,38 @@
 /*Estructura del código
-  static double[2] posCarro  //{x,y}
-  static int[2] centroC = {20,0}  // x,y
-  static int[3] recta1 = {10,-16,0} // x,y,c
-  static int[3] recta2 = {0,1,10}   // x,y,c
-  static int[3] recta3 = {5,72,200} // x,y,c
-  static int[3] rectaCC   // Recta desde el cenro hasta el carro (Variable)
-  static int[2] asintotas = {16,26} // Quizas solo hace falta la asintota de 26
+  static double posCarro[2]  //{x,y}
+  static int centroC[2] = {20,0}  // x,y
+  static int recta1[3] = {10,-16,0} // x,y,c
+  static int recta2[3] = {0,1,10}   // x,y,c
+  static int recta3[3] = {5,72,200} // x,y,c
+  static int rectaCC[3]   // Recta desde el cenro hasta el carro (Variable)
+  static int asintotas[2] = {16,26} // Quizas solo hace falta la asintota de 26
   static int nuevaX,nuevaY,nuevaC
-  if LecturaSharp > (25) && evasion == false{
-    Hacer PID de siempre
+  static double coords_int[3] = {nuevaX,nuevaY,nuevaC};
+  
+  double[] intersectar_L1(){
+    double[2] retorno;
+    double x,y;
+    x = (recta1[2] - ((recta1[1]*coords_int[2])/coords_int[1]))/(recta1[0] - ((recta1[1]*coords_int[0])/coords_int[1]));
+    y = (recta1[2]-(recta1[0]*x))/recta1[1];
+    retorno[0] = x;
+    retorno[1] = y;
+    return retorno;
+  } 
+  
+  if (LecturaSharp > (25) && evasion == false){
+    Hacer PID de siempre;
   }
   else{
-    if evasion == false{
-      posCarro = [0,0]
-      evasion = true
-      
+    if (evasion == false){
+      posCarro = {0,0};
+      evasion = true;
     }
     else{
     
     ////////////////////////Formula para sacar la recta desde el centro a la posicion del carro/////////////////////////
-    nuevaX = centroC[1]-posCarro[1]
-    nuevaY = -(centroC[0]-posCarro[0])
-    nuevaC = -nuevaY*posCarro[1] + nuevaX*posCarro[0]
+    nuevaX = centroC[1]-posCarro[1];
+    nuevaY = -1*(centroC[0]-posCarro[0]);
+    nuevaC = -1*nuevaY*posCarro[1] + nuevaX*posCarro[0];
     ////////////////////////Aqui ya tenemos la recta que pasa desde el Centro hasta el carrito//////////////////////////
     
     //Ahora necesitamos intersectar la recta obtenida con la que corresponda de acuerdo al cuadrante del carrito
@@ -52,7 +63,5 @@
     
     
     }
-    
   }
-  
 */
