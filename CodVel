@@ -19,6 +19,26 @@
     return retorno;
   } 
   
+  double[] intersectar_L2(){
+    double[2] retorno;
+    double x,y;
+    x = (recta2[2] - ((recta2[1]*coords_int[2])/coords_int[1]))/(recta2[0] - ((recta2[1]*coords_int[0])/coords_int[1]));
+    y = (recta2[2]-(recta2[0]*x))/recta2[1];
+    retorno[0] = x;
+    retorno[1] = y;
+    return retorno;
+  }
+  
+  double[] intersectar_L3(){
+    double[2] retorno;
+    double x,y;
+    x = (recta3[2] - ((recta3[1]*coords_int[2])/coords_int[1]))/(recta3[0] - ((recta3[1]*coords_int[0])/coords_int[1]));
+    y = (recta3[2]-(recta3[0]*x))/recta3[1];
+    retorno[0] = x;
+    retorno[1] = y;
+    return retorno;
+  }
+  
   if (LecturaSharp > (25) && evasion == false){
     Hacer PID de siempre;
   }
@@ -37,13 +57,16 @@
     
     //Ahora necesitamos intersectar la recta obtenida con la que corresponda de acuerdo al cuadrante del carrito
     if posCarro[0] <= 16{
-      intersectar con L1
+      //intersectar con L1
+      intersectar_L1();
     }
     else if 16<posCarro[0]<=26{
-      intersectar con L2
+      //intersectar con L2
+      intersectar_L2();
     }
     else{
-      intersectar con L3 hasta encontrar la linea
+      //intersectar con L3 hasta encontrar la linea
+      intersectar_L3();
     }
     
     
